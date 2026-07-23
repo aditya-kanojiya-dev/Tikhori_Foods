@@ -1,26 +1,28 @@
+import { ChiliIcon } from './ui/Icons';
+
 export default function Footer() {
   return (
     <footer className="relative bg-maroon-dark border-t border-gold/10">
-      {/* Paisley border */}
-      <div className="h-2 bg-gradient-to-r from-saffron via-chili to-turmeric opacity-60" />
+      {/* Gradient top accent */}
+      <div className="h-2 bg-gradient-to-r from-saffron via-chili to-turmeric opacity-60" aria-hidden="true" />
       
       <div className="paisley-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Logo */}
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">🌶️</span>
+            <div className="flex items-center gap-3">
+              <ChiliIcon size={24} className="text-saffron" />
               <span className="font-display text-xl font-bold text-gold-light">Tikhori Foods</span>
             </div>
 
             {/* Links */}
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-cream/40">
-              <a href="#story" className="hover:text-saffron transition-colors">Our Story</a>
-              <a href="#spices" className="hover:text-saffron transition-colors">Spices</a>
-              <a href="#process" className="hover:text-saffron transition-colors">Process</a>
-              <a href="#gallery" className="hover:text-saffron transition-colors">Gallery</a>
-              <a href="#contact" className="hover:text-saffron transition-colors">Contact</a>
-            </div>
+            <nav className="flex flex-wrap justify-center gap-6 text-sm text-cream/40" aria-label="Footer navigation">
+              <a href="#story" className="hover:text-saffron transition-colors link-underline">Our Story</a>
+              <a href="#spices" className="hover:text-saffron transition-colors link-underline">Spices</a>
+              <a href="#process" className="hover:text-saffron transition-colors link-underline">Process</a>
+              <a href="#gallery" className="hover:text-saffron transition-colors link-underline">Gallery</a>
+              <a href="#contact" className="hover:text-saffron transition-colors link-underline">Contact</a>
+            </nav>
 
             {/* Copyright */}
             <p className="text-cream/25 text-xs">

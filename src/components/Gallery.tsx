@@ -45,17 +45,16 @@ export default function Gallery() {
   const x = useTransform(scrollYProgress, [0, 1], ['5%', '-5%']);
 
   return (
-    <section id="gallery" className="relative py-24 md:py-32 bg-cream-dark overflow-hidden">
+    <section id="gallery" className="relative py-28 md:py-36 bg-cream-dark overflow-hidden">
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <span className="text-saffron text-sm uppercase tracking-[0.3em] font-semibold">Behind the Scenes</span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-maroon-dark mt-3 mb-6">
+          <span className="inline-block text-saffron text-sm uppercase tracking-[0.3em] font-semibold mb-4">Behind the Scenes</span>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-maroon-dark mb-6">
             Gallery
           </h2>
           <div className="w-20 h-[2px] bg-gradient-to-r from-transparent via-saffron to-transparent mx-auto mb-6" />
@@ -73,10 +72,9 @@ export default function Gallery() {
             {galleryImages.map((img, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className={`${img.span} relative rounded-xl overflow-hidden group cursor-pointer`}
+                className={`${img.span} relative rounded-2xl overflow-hidden group cursor-pointer`}
               >
                 <img
                   src={img.src}
