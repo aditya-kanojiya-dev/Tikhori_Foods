@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import { WheatIcon, DropletIcon, ChiliIcon, SparkleIcon, Leaf2Icon, LeafIcon } from './ui/Icons';
-import { sectionReveal, staggerContainer, staggerItem, fadeInUp, cardHover } from '../utils/motion';
+import { sectionReveal, fadeInUp, cardHover } from '../utils/motion';
 import { cn } from '../utils/cn';
 
 const spiceCategories = [
@@ -144,21 +144,24 @@ export default function SpiceRange() {
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          {...sectionReveal}
-          initial={inView ? 'visible' : 'hidden'}
+          variants={sectionReveal}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
           className="text-center mb-20"
         >
           <motion.span
-            {...fadeInUp}
-            initial={inView ? 'visible' : 'hidden'}
+            variants={fadeInUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
             className="inline-block text-gold text-sm uppercase tracking-[0.3em] font-semibold mb-4"
           >
             Crafted with Care
           </motion.span>
           <motion.h2
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.1 }}
-            initial={inView ? 'visible' : 'hidden'}
+            variants={fadeInUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            transition={{ delay: 0.1 }}
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6"
           >
             Our Spice Range
@@ -170,9 +173,10 @@ export default function SpiceRange() {
             className="w-20 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"
           />
           <motion.p
-            {...fadeInUp}
-            transition={{ ...fadeInUp.transition, delay: 0.3 }}
-            initial={inView ? 'visible' : 'hidden'}
+            variants={fadeInUp}
+            initial="hidden"
+            animate={inView ? 'visible' : 'hidden'}
+            transition={{ delay: 0.3 }}
             className="text-cream/70 max-w-2xl mx-auto text-lg md:text-xl leading-relaxed"
           >
             From the fiery red chili fields of Andhra to the cardamom hills of Kerala — every jar tells a story.

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, useMemo, type SVGProps } from 'react';
 import { motion } from 'framer-motion';
 import { ChiliIcon, SparkleIcon, LeafIcon, ArrowDownIcon } from './ui/Icons';
-import { fadeInUp, fadeIn, staggerContainer, staggerItem, createSpringTransition } from '../utils/motion';
+import { fadeInUp, fadeIn } from '../utils/motion';
 
 const spiceIcons = [ChiliIcon, SparkleIcon, LeafIcon, SparkleIcon, ChiliIcon, SparkleIcon, LeafIcon];
 
@@ -132,8 +132,10 @@ export default function Hero() {
       <div className="relative z-20 text-center px-4 max-w-5xl">
         {/* Chili Icon */}
         <motion.div
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, duration: 1, delay: 0.1 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1, delay: 0.1 }}
           className="mb-6"
         >
           <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full bg-gradient-to-br from-saffron/20 to-chili/20 border border-gold/30 mb-4 animate-float-gentle">
@@ -144,8 +146,10 @@ export default function Hero() {
         {/* Title */}
         <motion.h1
           id="hero-title"
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, duration: 1, delay: 0.3 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 1, delay: 0.3 }}
           className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-cream mb-6 leading-[1.1] tracking-tight"
         >
           <span className="text-gradient-saffron">Tikhori</span>{' '}
@@ -154,7 +158,9 @@ export default function Hero() {
 
         {/* Divider */}
         <motion.div
-          {...fadeIn}
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
           transition={{ duration: 0.8, delay: 0.7 }}
           className="w-24 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8 relative"
         >
@@ -163,8 +169,10 @@ export default function Hero() {
 
         {/* Tagline */}
         <motion.p
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, duration: 0.8, delay: 0.8 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gold-light italic mb-8 max-w-3xl mx-auto"
         >
           Spice up your kitchen, the authentic way
@@ -172,8 +180,10 @@ export default function Hero() {
 
         {/* Description */}
         <motion.p
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, duration: 0.8, delay: 1.1 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, delay: 1.1 }}
           className="text-cream/80 text-base sm:text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed"
         >
           Hand-picked, stone-ground, and lovingly blended — bringing the soul of India&apos;s spice gardens to your kitchen since 1987.
@@ -181,8 +191,10 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <motion.div
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, duration: 0.8, delay: 1.4 }}
+          variants={fadeInUp}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.8, delay: 1.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <motion.a
@@ -208,7 +220,9 @@ export default function Hero() {
 
         {/* Trust Indicators */}
         <motion.div
-          {...fadeIn}
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
           transition={{ duration: 0.8, delay: 1.8 }}
           className="mt-16 flex flex-wrap items-center justify-center gap-8 text-cream/50 text-sm"
         >
