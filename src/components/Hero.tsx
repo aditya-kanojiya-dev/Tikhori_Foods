@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo, type SVGProps } from 'react';
 import { motion } from 'framer-motion';
 import { ChiliIcon, SparkleIcon, LeafIcon, ArrowDownIcon } from './ui/Icons';
 import { fadeInUp, fadeIn, staggerContainer, staggerItem, createSpringTransition } from '../utils/motion';
