@@ -51,7 +51,7 @@ export default function Hero() {
     <section
       ref={heroRef}
       id="home"
-      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
+      className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pb-16"
       aria-labelledby="hero-title"
     >
       {/* Background Image with Premium Overlays */}
@@ -86,6 +86,8 @@ export default function Hero() {
               fontSize: `${p.size}px`,
               opacity: p.opacity,
               bottom: '-40px',
+              animationDuration: `${p.duration}s`,
+              animationDelay: `${p.delay}s`,
             }}
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: p.opacity, scale: 1 }}
@@ -244,22 +246,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.2, duration: 0.8 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
-        >
-          <span className="text-cream/50 text-xs uppercase tracking-widest font-medium">Scroll to Discover</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            className="text-saffron"
-          >
-            <ArrowDownIcon size={28} />
-          </motion.div>
-        </motion.div>
       </div>
     </section>
   );

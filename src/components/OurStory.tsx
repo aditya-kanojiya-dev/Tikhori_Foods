@@ -60,7 +60,8 @@ export default function OurStory() {
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
@@ -74,7 +75,8 @@ export default function OurStory() {
         {/* Story Content */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
           <motion.div
-            initial={sectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={sectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl image-reveal">
@@ -92,7 +94,8 @@ export default function OurStory() {
           </motion.div>
 
           <motion.div
-            initial={sectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={sectionInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-6"
           >
@@ -113,7 +116,8 @@ export default function OurStory() {
 
         {/* Stats */}
         <motion.div
-          initial={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.6 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-24"
         >
@@ -125,25 +129,27 @@ export default function OurStory() {
 
         {/* Timeline */}
         <motion.div
-          initial={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <div className="relative">
             {/* Timeline line */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-[2px] bg-gradient-to-r from-saffron/20 via-saffron to-saffron/20 -translate-y-1/2" aria-hidden="true" />
+            <div className="hidden md:block absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-saffron/20 via-saffron to-saffron/20" aria-hidden="true" />
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4">
               {timelineItems.map((item, index) => (
                 <motion.div
                   key={item.year}
-                  initial={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={sectionInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                   transition={{ duration: 0.6, delay: 0.9 + index * 0.15 }}
                   className="relative text-center"
                 >
-                  {/* Dot */}
-                  <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-saffron rounded-full border-4 border-cream z-10 shadow-lg" />
+                  {/* Dot on the line */}
+                  <div className="hidden md:flex absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-saffron rounded-full border-4 border-cream z-10 shadow-lg" />
                   
-                  <div className="bg-warm-white rounded-2xl p-6 shadow-md border border-gold/10 hover:shadow-xl hover:border-gold/30 transition-all duration-500 card-premium">
+                  <div className="mt-5 bg-warm-white rounded-2xl p-6 shadow-md border border-gold/10 hover:shadow-xl hover:border-gold/30 transition-all duration-500 card-premium">
                     <span className="font-display text-3xl font-bold text-chili">{item.year}</span>
                     <h4 className="font-semibold text-maroon-dark mt-2 text-lg">{item.label}</h4>
                     <p className="text-spice-brown/60 text-sm mt-1">{item.description}</p>

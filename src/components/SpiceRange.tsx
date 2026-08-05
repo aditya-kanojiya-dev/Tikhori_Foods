@@ -4,6 +4,9 @@ import { useInView } from '../hooks/useInView';
 import { WheatIcon, DropletIcon, ChiliIcon, SparkleIcon, Leaf2Icon, LeafIcon } from './ui/Icons';
 import { sectionReveal, fadeInUp, cardHover } from '../utils/motion';
 import { cn } from '../utils/cn';
+import turmericPowder from '../assets/Turmeric-Powder.png';
+import corianderPowder from '../assets/Coriander-Powder.png';
+import kaalaMasala from '../assets/Kaala-Masala.png';
 
 const spiceCategories = [
   {
@@ -12,7 +15,7 @@ const spiceCategories = [
     Icon: WheatIcon,
     color: 'from-saffron-dark to-saffron',
     gradient: 'from-saffron/20 to-gold/10',
-    image: 'https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
+    image: turmericPowder,
     count: '24+ varieties',
   },
   {
@@ -21,7 +24,7 @@ const spiceCategories = [
     Icon: DropletIcon,
     color: 'from-chili-dark to-chili',
     gradient: 'from-chili/20 to-saffron/10',
-    image: 'https://images.pexels.com/photos/4198656/pexels-photo-4198656.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
+    image: corianderPowder,
     count: '16+ blends',
   },
   {
@@ -30,7 +33,7 @@ const spiceCategories = [
     Icon: ChiliIcon,
     color: 'from-chili to-chili-light',
     gradient: 'from-chili/20 to-turmeric/10',
-    image: 'https://images.pexels.com/photos/30688211/pexels-photo-30688211.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
+    image: kaalaMasala,
     count: '8 heat levels',
   },
   {
@@ -65,7 +68,7 @@ const spiceCategories = [
 function SpiceCard({ spice, index, inView }: { spice: typeof spiceCategories[0]; index: number; inView: boolean }) {
   return (
     <motion.article
-      variants={{ ...cardHover, rest: { opacity: 0, y: 50 }, hover: cardHover.hover }}
+      variants={{ ...cardHover, rest: { opacity: 0, y: 50 }, hover: cardHover.hover, visible: { opacity: 1, y: 0, scale: 1 } }}
       initial="rest"
       animate={inView ? 'visible' : 'rest'}
       whileHover="hover"

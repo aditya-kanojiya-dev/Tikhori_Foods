@@ -64,7 +64,8 @@ export default function Testimonials() {
       <div ref={ref} className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -77,11 +78,12 @@ export default function Testimonials() {
 
         {/* Carousel */}
         <motion.div
-          initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative"
         >
-          <div className="glass-card rounded-3xl p-8 sm:p-12 bg-maroon/30 border-gold/15 min-h-[320px] flex items-center">
+          <div className="glass-dark rounded-3xl p-8 sm:p-12 min-h-[320px] flex items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
 import { fadeInUp, slideInLeft, sectionReveal } from '../utils/motion';
@@ -47,7 +47,20 @@ export default function FarmToJar() {
     offset: ['start end', 'end start'],
   });
 
-  const jarFill = useTransform(scrollYProgress, [0.1, 0.8], [0, 100]);
+  const jarFill = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const [jarTravel, setJarTravel] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      if (!containerRef.current) return;
+      setJarTravel(Math.max(0, containerRef.current.offsetHeight - 320 - 112));
+    };
+    measure();
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
+
+  const jarY = useTransform(scrollYProgress, [0, 1], [0, jarTravel]);
 
   return (
     <section id="process" className="relative bg-warm-white overflow-hidden">
@@ -55,7 +68,8 @@ export default function FarmToJar() {
       <div ref={headerRef} className="py-28 md:py-36 pb-12 md:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 40 }}
+            animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
@@ -74,10 +88,9 @@ export default function FarmToJar() {
       {/* Scrollytelling */}
       <div ref={containerRef} className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Left: Sticky Jar Visual */}
+          {/* Left: Jar Visual */}
           <div className="hidden lg:block">
-            <div className="sticky top-32">
-              <div className="relative w-64 h-80 mx-auto">
+            <motion.div style={{ y: jarY }} className="relative w-64 h-80 mx-auto">
                 {/* Jar SVG */}
                 <svg viewBox="0 0 200 300" className="w-full h-full">
                   {/* Jar body */}
@@ -126,8 +139,7 @@ export default function FarmToJar() {
                   className="absolute -right-16 top-1/2 -translate-y-1/2 font-display text-5xl font-bold text-saffron/20"
                   style={{ opacity: useTransform(jarFill, [0, 100], [0.2, 0.5]) }}
                 />
-              </div>
-            </div>
+              </motion.div>
           </div>
 
           {/* Right: Step Cards */}
@@ -148,7 +160,8 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
   return (
     <motion.div
       ref={ref}
-      initial={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+      initial={{ opacity: 0, x: 50 }}
+      animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
       transition={{ duration: 0.7, delay: 0.1 }}
       className="relative"
     >

@@ -49,7 +49,8 @@ export default function Gallery() {
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -72,7 +73,8 @@ export default function Gallery() {
             {galleryImages.map((img, index) => (
               <motion.div
                 key={index}
-                initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
                 className={`${img.span} relative rounded-2xl overflow-hidden group cursor-pointer`}
               >

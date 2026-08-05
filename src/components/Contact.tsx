@@ -33,7 +33,8 @@ export default function Contact() {
       <div ref={ref} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
-          initial={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
@@ -50,10 +51,11 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Contact Form */}
           <motion.div
-            initial={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6 rounded-3xl p-8 sm:p-10 border border-gold/15">
               <div>
                 <label htmlFor="name" className="block text-gold/70 text-sm font-medium mb-2">Your Name</label>
                 <input
@@ -93,7 +95,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="btn-warm w-full px-8 py-4 bg-saffron text-white font-semibold text-sm uppercase tracking-wider rounded-xl border-2 border-saffron hover:border-chili transition-all focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-maroon-dark"
+                className="btn-premium w-full px-8 py-4 bg-saffron text-white font-semibold text-sm uppercase tracking-wider rounded-xl border-2 border-saffron hover:border-chili shadow-lg shadow-saffron/25 transition-all focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-maroon-dark"
               >
                 <span className="flex items-center justify-center gap-2">
                   {submitted ? (
@@ -114,7 +116,8 @@ export default function Contact() {
 
           {/* Contact Info */}
           <motion.div
-            initial={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="space-y-8"
           >
