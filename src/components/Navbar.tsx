@@ -35,9 +35,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo */}
         <a
-          href="#"
+          href="#top"
           className="flex items-center gap-2 group"
-          aria-label="Tikhori Foods - Home"
+          aria-label="Tikhori Foods - back to top"
         >
           <ChiliIcon size={28} className="text-saffron" />
           <span className="font-display text-xl sm:text-2xl font-bold text-gold-light tracking-wide group-hover:text-saffron transition-colors duration-300">

@@ -11,8 +11,10 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <ChiliIcon size={24} className="text-saffron" />
-              <span className="font-display text-xl font-bold text-gold-light">Tikhori Foods</span>
+              <a href="#top" className="flex items-center gap-3" aria-label="Tikhori Foods - back to top">
+                <ChiliIcon size={24} className="text-saffron" />
+                <span className="font-display text-xl font-bold text-gold-light">Tikhori Foods</span>
+              </a>
             </div>
 
             {/* Links */}

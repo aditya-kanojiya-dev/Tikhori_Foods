@@ -50,7 +50,7 @@ export default function Hero() {
   return (
     <section
       ref={heroRef}
-      id="home"
+      id="top"
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden pb-16"
       aria-labelledby="hero-title"
     >

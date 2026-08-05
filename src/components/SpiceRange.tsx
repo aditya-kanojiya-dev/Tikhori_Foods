@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from '../hooks/useInView';
-import { WheatIcon, DropletIcon, ChiliIcon, SparkleIcon, Leaf2Icon, LeafIcon } from './ui/Icons';
+import { DropletIcon, ChiliIcon, SparkleIcon, Leaf2Icon } from './ui/Icons';
 import { sectionReveal, fadeInUp, cardHover } from '../utils/motion';
 import { cn } from '../utils/cn';
 import turmericPowder from '../assets/Turmeric-Powder.png';
@@ -10,58 +10,40 @@ import kaalaMasala from '../assets/Kaala-Masala.png';
 
 const spiceCategories = [
   {
-    name: 'Whole Spices',
-    description: 'Premium handpicked whole spices — cumin, cardamom, cloves, and more.',
-    Icon: WheatIcon,
-    color: 'from-saffron-dark to-saffron',
-    gradient: 'from-saffron/20 to-gold/10',
+    name: 'Turmeric Powder',
+    description: 'Golden, aromatic turmeric ground from the finest sun-dried roots.',
+    Icon: SparkleIcon,
+    color: 'from-turmeric to-turmeric-light',
+    gradient: 'from-turmeric/20 to-gold/10',
     image: turmericPowder,
-    count: '24+ varieties',
+    count: '100% pure',
   },
   {
-    name: 'Blended Masalas',
-    description: 'Signature blends for biryani, garam masala, sambar & more.',
+    name: 'Coriander Powder',
+    description: 'Freshly ground coriander with a citrusy, floral aroma.',
+    Icon: Leaf2Icon,
+    color: 'from-spice-brown to-spice-brown-light',
+    gradient: 'from-spice-brown/20 to-saffron/10',
+    image: corianderPowder,
+    count: '100% pure',
+  },
+  {
+    name: 'Kaala Masala',
+    description: 'Our signature dark masala — bold, smoky, and stone-ground.',
     Icon: DropletIcon,
     color: 'from-chili-dark to-chili',
     gradient: 'from-chili/20 to-saffron/10',
-    image: corianderPowder,
-    count: '16+ blends',
+    image: kaalaMasala,
+    count: 'Signature blend',
   },
   {
-    name: 'Chili Powders',
+    name: 'Chili Powder',
     description: 'From mild Kashmiri to fiery Guntur — heat for every palate.',
     Icon: ChiliIcon,
     color: 'from-chili to-chili-light',
     gradient: 'from-chili/20 to-turmeric/10',
-    image: kaalaMasala,
+    image: 'https://images.pexels.com/photos/30688211/pexels-photo-30688211.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
     count: '8 heat levels',
-  },
-  {
-    name: 'Turmeric & Haldi',
-    description: 'Golden, aromatic turmeric sourced from the finest farms.',
-    Icon: SparkleIcon,
-    color: 'from-turmeric to-turmeric-light',
-    gradient: 'from-turmeric/20 to-gold/10',
-    image: 'https://images.pexels.com/photos/4198655/pexels-photo-4198655.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    count: '6 origins',
-  },
-  {
-    name: 'Dried Herbs',
-    description: 'Fenugreek leaves, curry leaves, mint & coriander — dried to perfection.',
-    Icon: Leaf2Icon,
-    color: 'from-spice-brown to-spice-brown-light',
-    gradient: 'from-spice-brown/20 to-saffron/10',
-    image: 'https://images.pexels.com/photos/9575086/pexels-photo-9575086.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    count: '12+ herbs',
-  },
-  {
-    name: 'Specialty Mixes',
-    description: 'Chai masala, pickle masala, chaat masala & seasonal specials.',
-    Icon: LeafIcon,
-    color: 'from-maroon to-maroon-light',
-    gradient: 'from-maroon/20 to-chili/10',
-    image: 'https://images.pexels.com/photos/1516421/pexels-photo-1516421.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=400&w=600',
-    count: '10+ specialties',
   },
 ];
 
@@ -110,10 +92,13 @@ function SpiceCard({ spice, index, inView }: { spice: typeof spiceCategories[0];
         </p>
         
         {/* Hover reveal link */}
-        <div className="flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+        <a
+          href="#contact"
+          className="flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 hover:text-saffron-light"
+        >
           <span>Explore Range</span>
           <ArrowRight size={16} />
-        </div>
+        </a>
       </div>
 
       {/* Glow effect on hover */}
@@ -187,7 +172,7 @@ export default function SpiceRange() {
         </motion.div>
 
         {/* Spice Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {spiceCategories.map((spice, index) => (
             <SpiceCard key={spice.name} spice={spice} index={index} inView={inView} />
           ))}
